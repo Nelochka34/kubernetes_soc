@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vector
+  namespace: vector
+  labels:
+    app: vector
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vector
+  template:
+    metadata:
+      labels:
+        app: vector
+    spec:
+      containers:
+      - name: vector
+        image: XXXX:5050/soc/base-images:vector-037
+        ports:
+        - containerPort: 514
+          hostPort: 514
+          protocol: UDP
+        volumeMounts:
+        - name: vector-config
+          mountPath: /etc/vector
+      volumes:
+      - name: vector-config
+        configMap:
+          name: vector-config
