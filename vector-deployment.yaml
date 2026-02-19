@@ -33,4 +33,3 @@ spec:
         - name: vector-config
           configMap:
             name: vector-config
-
