@@ -44,13 +44,16 @@ Failover происходит без внешнего load balancer.
 
 #### 2. Настройка IP (пул IP), которые MetalLB может раздать
  (metallb-config.yaml)
+ 
 `kubectl apply -f metallb-config.yaml`
 
 #### 3. Запускаем Vector, открываем порт 514, пробрасываем порт на ноду - vector-deployment.yaml
+
 `kubectl apply -f vector-deployment.yaml`
 
 #### 4. Настройка LoadBalancer Service. 
 Сервис говорит Kubernetes, что нужен внешний IP, Metallb берет IP из vector-pool, назначает IP. 
+
 `kubectl apply -f vector-service.yaml`
 
 #### 5. ConfigMap для Vector (vector-config.toml)
