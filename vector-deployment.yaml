@@ -16,16 +16,21 @@ spec:
         app: vector
     spec:
       containers:
-      - name: vector
-        image: XXXX:5050/soc/base-images:vector-037
-        ports:
-        - containerPort: 514
-          hostPort: 514
-          protocol: UDP
-        volumeMounts:
-        - name: vector-config
-          mountPath: /etc/vector
+        - name: vector
+          image: XXXXXXXX:5050/soc/base-images:vector-037
+          imagePullPolicy: IfNotPresent
+          args:
+            - "--config"
+            - "/etc/vector/vector.toml"
+          ports:
+            - containerPort: 15140
+              hostPort: 15140
+              protocol: UDP
+          volumeMounts:
+            - name: vector-config
+              mountPath: /etc/vector
       volumes:
-      - name: vector-config
-        configMap:
-          name: vector-config
+        - name: vector-config
+          configMap:
+            name: vector-config
+
