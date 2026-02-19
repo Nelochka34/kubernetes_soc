@@ -42,6 +42,6 @@ Failover происходит без внешнего load balancer.
 - controller 
 - speaker
 
-### 2. Настройка IP (пул IP), которые MetalLB может раздать (metallb-conf.yaml)
-`kubectl apply -f metallb-conf.yaml`
+#### 2. Настройка IP (пул IP), которые MetalLB может раздать (metallb-config.yaml)
+`kubectl apply -f metallb-config.yaml`
 
