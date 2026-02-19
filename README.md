@@ -7,3 +7,17 @@
 - Внешний IP
 
 
+## Схема 
+   Источник событий
+           ↓
+       X.X.X.X:514
+           ↓
+        MetalLB
+           ↓
+        kube-proxy
+           ↓
+        Service
+           ↓
+        Pod Vector
+           ↓
+        Backend (SIEM)
