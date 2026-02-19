@@ -36,9 +36,12 @@ Failover происходит без внешнего load balancer.
 
 ## Установка
 #### 1. MetalLB установлен в кластере
-Это базовая установка из официального манифеста MetalLB
+Это базовая установка из официального манифеста MetalLB. 
+
 Должны быть: 
 - controller 
 - speaker
 
+### 2. Настройка IP (пул IP), которые MetalLB может раздать (metallb-conf.yaml)
+`kubectl apply -f metallb-conf.yaml`
 
